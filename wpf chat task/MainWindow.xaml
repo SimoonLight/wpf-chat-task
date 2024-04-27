@@ -1,0 +1,101 @@
+﻿<Window x:Class="wpf_chat_task.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_chat_task"
+        mc:Ignorable="d"
+        Title="Chat" Height="500" Width="300" MaxHeight="500" MaxWidth="300">
+    <Grid Background="#222831">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="40" Height="40">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Images/mpho.jpg"></ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Label Grid.Column="1" Foreground="White" FontSize="18" Content=" Lana Alvares" VerticalAlignment="Center"></Label>
+            
+        </Grid>
+
+        <Border CornerRadius="50 50 0 0" Background="#393E46"
+                    Grid.Row="1"></Border>
+        <Grid Grid.Row="1" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListBox Background="Transparent" Name="list1" HorizontalAlignment="Left" 
+                     VerticalAlignment="Bottom"
+         FontSize="12" BorderThickness="0" BorderBrush="Transparent"
+         Grid.Column="0" >
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="10"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+            </ListBox>
+            <ListBox Background="Transparent" Name="list2" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                     FontSize="25" BorderThickness="0" BorderBrush="Transparent"
+                     Grid.Column="1"></ListBox>
+            
+        </Grid>
+
+
+        <Border CornerRadius="30 30 30 30" Background="#393E46"
+                Grid.Row="2" Panel.ZIndex="1" Margin="5" Grid.Column="0"></Border>
+            
+        <Grid Grid.Row="2" Background="Transparent" Panel.ZIndex="3">
+            
+            
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBox Name="txt" Grid.Row="0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Foreground="White" Panel.ZIndex="3" Margin="15" FontSize="14" Height="20" BorderBrush="Transparent"
+                     BorderThickness="0" Width="235"></TextBox>
+
+            <Button x:Name="send_btn" Grid.Column="1" Grid.Row="0" Background="Transparent" Height="25" Width="25"
+                    Click="send_btn_Click" BorderThickness="0" BorderBrush="Transparent" Panel.ZIndex="2"
+                    >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+
+
+            </Button>
+            <Image Source="/Images/arr.png" Grid.Column="1" Height="21" Width="25"></Image>
+            
+        </Grid>
+        
+    </Grid>
+</Window>
